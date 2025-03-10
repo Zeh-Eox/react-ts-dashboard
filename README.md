@@ -32,7 +32,7 @@ react-ts-dashboard/
 ## 🛠 Installation et démarrage
 ### 1️⃣ Cloner le projet
 ```sh
-git clone https://github.com/your-repo/react-ts-dashboard.git
+git clone https://github.com/Zeh-Eox/react-ts-dashboard.git
 cd react-ts-dashboard
 ```
 ### 2️⃣ Installer les dépendances
