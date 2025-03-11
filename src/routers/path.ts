@@ -2,7 +2,7 @@ const ROUTES = {
     HOME: '/',
     LOGIN: '/login',
     SIGNUP: '/signup',
-    NOTFOUND: '*'
+    NOTFOUND: '*',
 }
 
 export default ROUTES
