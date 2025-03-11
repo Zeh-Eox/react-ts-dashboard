@@ -10,7 +10,8 @@ interface RouteType {
     path: string,
     component: ReactNode,
     title: string,
-    noLayout: boolean
+    noLayout: boolean,
+    private: boolean
 }
 
 const routes: RouteType[] = [
@@ -18,25 +19,29 @@ const routes: RouteType[] = [
         path: ROUTES.HOME,
         component: <Home />,
         title: TITLES.HOME,
-        noLayout: false
+        noLayout: false,
+        private: false
     },
     {
         path: ROUTES.LOGIN,
         component: <Login />,
         title: TITLES.LOGIN,
-        noLayout: true
+        noLayout: true,
+        private: false
     },
     {
         path: ROUTES.SIGNUP,
         component: <Signup />,
         title: TITLES.SIGNUP,
-        noLayout: true
+        noLayout: true,
+        private: false
     },
     {
         path: ROUTES.NOTFOUND,
         component: <NotFound />,
         title: TITLES.NOTFOUND,
-        noLayout: false
+        noLayout: false,
+        private: false
     },
 ]
 
