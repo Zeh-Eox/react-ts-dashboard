@@ -1,34 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { ReactNode } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import TitleUpdater from './functions/TitleUpdater'
+import routes from './routers/router'
+import Layout from './components/Layout'
 
-function App() {
-  const [count, setCount] = useState(0)
+interface RouteType {
+  path: string,
+  component: ReactNode,
+  noLayout?: boolean
+}
 
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <Router>
+        <Routes>
+          {routes.map((route: RouteType) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={
+                route.noLayout ? (
+                  <>
+                    <TitleUpdater />
+                    {route.component}
+                  </>
+                ) : (
+                  <Layout>
+                    <TitleUpdater />
+                    {route.component}
+                  </Layout>
+                )
+              }
+            />
+          ))}
+        </Routes>
+      </Router>
+    </div>
   )
 }
 
